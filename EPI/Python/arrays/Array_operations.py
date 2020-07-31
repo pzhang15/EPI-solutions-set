@@ -1,5 +1,6 @@
 
-A = list(range(20))
-A.insert(3, 100)
-print(min(A))
-print(A)
+
+for i in range(0, 10):
+    while(i < 5):
+        i = i + 1
+    print(i)

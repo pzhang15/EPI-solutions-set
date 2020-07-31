@@ -87,12 +87,17 @@ def one_pass_sol(A: List[int], x: int) -> None:
     while equal < larger:
         if A[equal] < pivot:
             A[smaller], A[equal] = A[equal], A[smaller]
-            smaller, equal =  smaller + 1, equal + 1
+            #为什么在A[equal] < pivot 时 equal和less应该同时 +=1， 而greater的情况不用呢？
+            #因为我们左边起手，那么smaller之前的一定是之前写入的小于pivot的数字
+            # 那么「！当前smaller指向的一定是equal于pivot的，因为只有A[equal] == pivot的情况下，smaller和equal之间才会有gap
+            # 而我们smaller和equal调换之后，我们当前equal一定拿到的是和pivot相等的数字，所以equal可以向前移动
+            # 但是greater一边的情况我们并不知道，因为我们没有检查过，所以换过来的可能比我们当前数字还要小，所以可以移动equal指针！」
+            smaller, equal =  smaller + 1, equal + 1 
         elif A[equal] == pivot:
             equal += 1
         else: # A[equal] > pivot
             A[larger], A[equal] = A[equal], A[larger]
-            larger -= 1
+            larger -= 1 # equal不动， 因为swap过来的element并不知道是多大，所以equal下次还会进行第二次比较
             
 
 A = [0, 1, 2, 0, 2, 1, 1]

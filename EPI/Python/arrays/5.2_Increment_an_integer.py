@@ -24,13 +24,18 @@ def add_one_my_sol(A: List) -> int:
         return A
 #O(N)
 def add_one_EPI_sol(A: List) -> int:
-    A[-1] += 1
+    
+    A[-1] += 1 #这是精髓，我们总想着上来进入forloop来进行increment，里面再设置很多的if很复杂
+
+    #实际上我们是步骤，1.increment 2.check进位
+    #这样子比混在一起在一个forloop里面要好得多
     for i in reversed(range(1, len(A))):
         if A[i] != 10:
             break
         A[i] = 0
         A[i - 1] += 1
     else: #for else 的精髓, 如果break则不会execute else， 如果没有任何一次if，则会execute else
+          #这样子我们就知道A[1] ~A[N - 1]必定都是9， 所以我们再进行一次check   
         if A[0] == 10:
             A[0] = 1 #A slick way to add 1 without O(N) complexity
             A.append(0)
