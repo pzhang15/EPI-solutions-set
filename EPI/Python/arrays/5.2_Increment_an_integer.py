@@ -34,7 +34,8 @@ def add_one_EPI_sol(A: List) -> int:
             break
         A[i] = 0
         A[i - 1] += 1
-    else: #for else 的精髓, 如果break则不会execute else， 如果没有任何一次if，则会execute else
+    #if none of them is not equal to 10 = if all of them is equal to 10
+    else: #for else 的精髓, 如果没有任何一次if，则会execute else
           #这样子我们就知道A[1] ~A[N - 1]必定都是9， 所以我们再进行一次check   
         if A[0] == 10:
             A[0] = 1 #A slick way to add 1 without O(N) complexity

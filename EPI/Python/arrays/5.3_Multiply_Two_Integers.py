@@ -10,7 +10,7 @@ For example, since 193707721 X -761838257287 = -147573952589676412927, if the in
 your function should return (-1,4,7,5,7,3,9,5,2,5,8,9,6,7,6,4,1,2,9,2,7).
 '''
 #O(nm) total bit operation
-def multiply(s: int, t: int) -> int:
+def multiply(s: List, t: List) -> List:
     # ^ to check if two condition are the same 1^ 1 = 0, 0 ^ 0 = 0, 1 ^ 0 or 0 ^ 1 = 1
     # if they are not the same, our if statement return true, so sign = -1
     sign = -1 if ((s[0] < 0) ^ (t[0] < 0)) else 1 

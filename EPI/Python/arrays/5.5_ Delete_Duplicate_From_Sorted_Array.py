@@ -23,10 +23,12 @@ def wrong_sol(A: List) -> None:
     A = A[:i]
 
 def EPI_sol(A: List) -> List:
+    write_index = 1
     #为什么我们要1起始进行写入，因为我们写入的位置会覆盖，所以一定要在上一个unique element的下一个进行写入，
     #而下面 A[write_index - 1] 实际上是寻找上一个写入的unique element
     for j in range(1, len(A)):
         #！！！思考一下A[write_index - 1] 和 起始于1的关系
+        #比较上一个写入的unique element和当前的j， 只有我们找到不一样的我们才会写入
         if A[write_index - 1] != A[j]:
             A[write_index] = A[j]
             write_index += 1
