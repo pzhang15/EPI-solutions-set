@@ -26,8 +26,6 @@ def string_to_int(s: str) -> int:
 
     return sign * running_sum
 
-
-
 x = -456
 s  = int_to_string(x)
 x = string_to_int(s)

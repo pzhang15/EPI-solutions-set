@@ -16,14 +16,26 @@ def base_conversion(s, b1, b2):
         else:
             return construct_from_int(num // base, base) + string.hexdigits[num % base]
     print(string.hexdigits)
-    # convert the string from any base to integer
-    # leveraging base 10 method:  string.hexdigits.index(c.lower())
+    #calculate the sum, then convert
     is_negative = s[0] == '-' #return 1 if it's negative 0 if it's not
     num_as_int = 0
     for c in s[is_negative:]:
         num_as_int = num_as_int * b1 + string.hexdigits.index(c.lower())
     
     return ('-' if is_negative else '') + ('0' if num_as_int == 0 else construct_from_int(num_as_int, b2))
+
+def base_conversion_2(s, b1, b2):
+    num_as_int = 0
+    is_negative = s[0] == '-'
+    for c in s[is_negative:]:
+        num_as_int = num_as_int * b1 + string.hexdigits.index(c)
+    new_base = '' #这个必须是string，因为表达的是每位的数值， 而不是sum
+    while(num_as_int != 0):
+        #least significant digit come first, so we have to reverse it at the end
+        new_base += string.hexdigits[num_as_int % b2] 
+        num_as_int //= b2
+    print(new_base[::-1])  
+
 
 s = '61a'
 b1 = 7
