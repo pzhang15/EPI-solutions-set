@@ -24,9 +24,9 @@ def add_one_my_sol(A: List) -> int:
         return A
 #O(N)
 def add_one_EPI_sol(A: List) -> int:
-    
+    #
     A[-1] += 1 #这是精髓，我们总想着上来进入forloop来进行increment，里面再设置很多的if很复杂
-
+                # 这也是为什么题目给的不是一个数字， 而是一个数字连成的数组， 方便直接进位
     #实际上我们是步骤，1.increment 2.check进位
     #这样子比混在一起在一个forloop里面要好得多
     for i in reversed(range(1, len(A))):

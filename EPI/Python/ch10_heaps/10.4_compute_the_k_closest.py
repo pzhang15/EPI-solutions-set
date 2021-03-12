@@ -1,0 +1,1 @@
+setattr(ListNode, '__lt__', lambda self, other: self.val <= other.val)

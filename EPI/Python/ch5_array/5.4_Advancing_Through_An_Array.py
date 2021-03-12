@@ -28,6 +28,7 @@ def epi_sol(A: List[int]) -> bool:
     #这道题让你能走 小于等于 A[i]的节点，如果必须走A[i]，那么就需要dfs或者dp了
     
     #第二个condition注意是 < 因为如果能 == last就可以停止了，比last大也可以停止
+    #注意i <= furthest_so_far是在检测中间是否有断层，如果出现断层就必须停止
     while(i <= furthest_so_far and furthest_so_far < last):
         print(i, " ", furthest_so_far)
         furthest_so_far = max(furthest_so_far, i + A[i])
